@@ -62,9 +62,9 @@
 
 (use-package lsp-mode
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-	 ;; (css-mode . lsp)
-	 ;; (csharp-mode . lsp)
-         ;; (fsharp-mode . lsp)
+	 (css-mode . lsp)
+	 (csharp-mode . lsp)
+         (fsharp-mode . lsp)
          ;; if you want which-key integration
          (lsp-mode . lsp-enable-which-key-integration))
     :commands lsp)
@@ -87,4 +87,10 @@
     (which-key-mode))
 
 (use-package web-mode)
+
+(add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))
+(setq web-mode-engines-alist
+      '(("razor"  . "\\.cshtml\\'")))
+
+
 
